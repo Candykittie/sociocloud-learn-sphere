@@ -12,11 +12,11 @@ const Header = () => {
 
   const menuItems = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/#about' },
-    { name: 'Courses', path: '/#courses' },
-    { name: 'Webinar', path: '/#webinar' },
-    { name: 'Leadership Scorecard', path: '/#leadership' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'About', path: '/about' },
+    { name: 'Courses', path: '/courses' },
+    { name: 'Webinar', path: '/webinar' },
+    { name: 'Leadership Board', path: '/leadership-board' },
+    { name: 'Contact', path: '/about#contact' },
   ];
 
   return (
@@ -33,13 +33,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             {menuItems.map((item) => (
-              <a 
+              <Link 
                 key={item.name} 
-                href={item.path} 
+                to={item.path} 
                 className="text-gray-600 hover:text-socio-blue transition-colors font-medium"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <Link 
               to="/login"
@@ -62,14 +62,14 @@ const Header = () => {
         {mobileMenuOpen && (
           <nav className="md:hidden py-4 animate-fade-in">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.path}
+                to={item.path}
                 className="block py-2 px-4 text-gray-600 hover:bg-gray-100 hover:text-socio-blue"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
             <Link
               to="/login"

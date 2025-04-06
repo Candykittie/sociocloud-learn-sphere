@@ -132,6 +132,19 @@
   .container-wrapper {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Leadership Board podium colors */
+  .bg-gold {
+    @apply bg-gradient-to-b from-yellow-300 to-yellow-500;
+  }
+
+  .bg-silver {
+    @apply bg-gradient-to-b from-gray-300 to-gray-500;
+  }
+
+  .bg-bronze {
+    @apply bg-gradient-to-b from-amber-600 to-amber-800;
+  }
 }
 
 #root {
