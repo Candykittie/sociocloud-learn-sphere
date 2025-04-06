@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Sociocloud</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        .about-page-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1513258496099-48168024aec0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 8rem 0 4rem;
+            color: white;
+            text-align: center;
+        }
+        
+        .team-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+        }
+        
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-name {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .member-title {
+            color: #4a89dc;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .timeline-section {
+            padding: 5rem 0;
+            background-color: #f9f9f9;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background-color: #4a89dc;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: calc(50% + 2rem);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: calc(50% + 2rem);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #4a89dc;
+            border: 3px solid white;
+        }
+        
+        .timeline-date {
+            color: #4a89dc;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 2rem;
+            }
+            
+            .timeline-item {
+                padding-left: 4rem !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            
+            .timeline-item::before {
+                left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-wrapper">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <span class="logo-icon">SC</span>
+                    <span class="logo-text">Sociocloud</span>
+                </a>
+
+                <nav class="desktop-nav">
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/about.html" class="nav-link">About</a>
+                    <a href="/courses.html" class="nav-link">Courses</a>
+                    <a href="/webinar.html" class="nav-link">Webinar</a>
+                    <a href="/leadership-board.html" class="nav-link">Leadership Board</a>
+                    <a href="/#contact" class="nav-link">Contact</a>
+                    <a href="/login.html" class="btn-primary">Login</a>
+                </nav>
+
+                <button class="mobile-menu-button">
+                    <span class="menu-icon"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/about.html" class="nav-link">About</a>
+                <a href="/courses.html" class="nav-link">Courses</a>
+                <a href="/webinar.html" class="nav-link">Webinar</a>
+                <a href="/leadership-board.html" class="nav-link">Leadership Board</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+                <a href="/login.html" class="nav-link mobile-login">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-page-hero">
+        <div class="container-wrapper">
+            <h1 class="fade-in">Our Story</h1>
+            <p class="fade-in">Discover the journey, mission and people behind Sociocloud</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section">
+        <div class="container-wrapper">
+            <h2 class="text-center">Our Journey</h2>
+            <div class="mt-12">
+                <p>Sociocloud was founded in 2019 with a vision to transform education through innovative learning approaches and leadership development. Our founders, a team of educators, technologists, and industry leaders, saw the need for a more dynamic, accessible, and impactful learning platform that could prepare students for the rapidly evolving digital landscape.</p>
+                <p class="mt-12">What started as a small initiative has grown into a global community of learners, instructors, and thought leaders committed to pushing the boundaries of education. Today, Sociocloud offers a comprehensive range of courses, workshops, and resources designed to develop not just technical skills, but also critical thinking, leadership, and social intelligence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container-wrapper">
+            <h2 class="text-center">Our Milestones</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <h3>Foundation</h3>
+                    <p>Sociocloud was established with its first online course in Digital Leadership</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <h3>Expansion</h3>
+                    <p>Launched 10 new courses and reached our first 1,000 students</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <h3>Partnerships</h3>
+                    <p>Formed key partnerships with leading tech companies to enhance our curriculum</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <h3>Global Reach</h3>
+                    <p>Expanded to serve students in over 50 countries worldwide</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <h3>Innovation</h3>
+                    <p>Integrated advanced learning technologies and personalized learning paths</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <h3>Community Growth</h3>
+                    <p>Reached 50,000 active learners and launched our mentorship program</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container-wrapper">
+            <h2 class="text-center">Meet Our Leadership Team</h2>
+            <p class="text-center" style="max-width: 800px; margin: 1rem auto 0;">Our diverse team of experts brings together decades of experience in education, technology, and business leadership</p>
+            
+            <div class="team-grid">
+                <div class="team-member scale-in">
+                    <div class="team-photo">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="John Mitchell">
+                    </div>
+                    <h3 class="member-name">John Mitchell</h3>
+                    <p class="member-title">CEO & Co-Founder</p>
+                    <p>20+ years in EdTech and previously led innovation at Stanford University</p>
+                </div>
+                
+                <div class="team-member scale-in">
+                    <div class="team-photo">
+                        <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Sarah Chen">
+                    </div>
+                    <h3 class="member-name">Sarah Chen</h3>
+                    <p class="member-title">Chief Learning Officer</p>
+                    <p>Expert in learning design with background in cognitive psychology</p>
+                </div>
+                
+                <div class="team-member scale-in">
+                    <div class="team-photo">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Marcus Johnson">
+                    </div>
+                    <h3 class="member-name">Marcus Johnson</h3>
+                    <p class="member-title">CTO</p>
+                    <p>Former tech lead at Google with expertise in AI-driven learning systems</p>
+                </div>
+                
+                <div class="team-member scale-in">
+                    <div class="team-photo">
+                        <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Amelia Rodriguez">
+                    </div>
+                    <h3 class="member-name">Amelia Rodriguez</h3>
+                    <p class="member-title">VP of Content</p>
+                    <p>Award-winning educator focused on creating engaging and impactful learning experiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-wrapper">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <span class="logo-icon">SC</span>
+                        <span class="logo-text">Sociocloud</span>
+                    </div>
+                    <p>Transforming education through innovative learning approaches and leadership development.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/#about">About Us</a></li>
+                        <li><a href="/#courses">Courses</a></li>
+                        <li><a href="/#leadership">Leadership Scorecard</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Webinars</a></li>
+                        <li><a href="#">Free Resources</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-connect">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="/#contact">Contact Us</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Sociocloud. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.mobile-menu-button');
+            const mobileNav = document.querySelector('.mobile-nav');
+            
+            menuButton.addEventListener('click', function() {
+                mobileNav.classList.toggle('active');
+                menuButton.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
