@@ -1,26 +1,1033 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sociocloud-learn-sphere</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociocloud</title>
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
 
-    <meta property="og:title" content="sociocloud-learn-sphere" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    body {
+      color: #1A1F2C;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  <body>
-    <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    .container-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 16px;
+      width: 100%;
+    }
+
+    .section {
+      padding: 64px 0;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background-color: #1EAEDB;
+      color: white;
+      font-weight: 600;
+      padding: 8px 24px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background-color: #0EA5E9;
+    }
+
+    .btn-outline {
+      border: 2px solid #1EAEDB;
+      color: #1EAEDB;
+      font-weight: 600;
+      padding: 8px 24px;
+      border-radius: 6px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      background-color: #1EAEDB;
+      color: white;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      transition: box-shadow 0.3s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Header Styles */
+    header {
+      background-color: white;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 50;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-square {
+      background-color: #1EAEDB;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+
+    .logo-text {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .mobile-nav-button {
+      display: none;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-link {
+      color: #666;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #1EAEDB;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding-top: 64px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 24px;
+      animation: fadeIn 1s ease;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1s ease 0.3s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      animation: fadeIn 1s ease 0.6s both;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-30px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-15px) translateX(-50%);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    .about {
+      background-color: #f8f9fa;
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-image {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .about-content h2 {
+      font-size: 32px;
+      margin-bottom: 24px;
+    }
+
+    .about-card {
+      margin-bottom: 24px;
+    }
+
+    .about-card h3 {
+      font-size: 20px;
+      color: #1EAEDB;
+      margin-bottom: 8px;
+    }
+
+    /* Courses Section */
+    .courses {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: #666;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .course-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: white;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .course-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .course-card:hover .course-image img {
+      transform: scale(1.05);
+    }
+
+    .course-content {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-content h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .course-content p {
+      color: #666;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .course-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .course-buttons .btn-outline,
+    .course-buttons .btn-primary {
+      padding: 6px 16px;
+      font-size: 14px;
+    }
+
+    .courses-action {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    /* Companies Section */
+    .companies {
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .company-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      filter: grayscale(1);
+      transition: all 0.3s;
+    }
+
+    .company-item:hover {
+      filter: grayscale(0);
+      transform: translateY(-5px);
+    }
+
+    .company-item img {
+      max-height: 64px;
+      max-width: 100%;
+    }
+
+    /* Top Performers Section */
+    .performers {
+      background-color: #D3E4FD;
+    }
+
+    .performers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .performer-card {
+      text-align: center;
+    }
+
+    .performer-image {
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .performer-image img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 4px solid #1EAEDB;
+      object-fit: cover;
+    }
+
+    .performer-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .performer-title {
+      color: #1EAEDB;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .performer-description {
+      color: #666;
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: white;
+      border-top: 1px solid #eee;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 32px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: #666;
+      margin-bottom: 4px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #1EAEDB;
+      box-shadow: 0 0 0 2px rgba(30, 174, 219, 0.2);
+    }
+
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1A1F2C;
+      color: white;
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .footer-description {
+      color: #bbb;
+      margin-bottom: 16px;
+    }
+
+    .footer-heading {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-link {
+      margin-bottom: 8px;
+    }
+
+    .footer-link a {
+      color: #bbb;
+      transition: color 0.3s;
+    }
+
+    .footer-link a:hover {
+      color: white;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .social-icon {
+      color: #bbb;
+      transition: color 0.3s;
+    }
+
+    .social-icon:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #333;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .copyright {
+      color: #999;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-link {
+      color: #999;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .footer-bottom-link:hover {
+      color: white;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-nav-button {
+        display: block;
+      }
+
+      .about-grid,
+      .companies-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-bottom-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .companies-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Mobile Navigation */
+    .mobile-menu {
+      display: none;
+      background-color: white;
+      padding: 16px;
+      margin-top: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      color: #666;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu a:hover {
+      color: #1EAEDB;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container-wrapper">
+      <nav>
+        <a href="#" class="logo">
+          <span class="logo-square">SC</span>
+          <span class="logo-text">Sociocloud</span>
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav">
+          <div class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#courses" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Webinar</a>
+            <a href="#" class="nav-link">Leadership Board</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </div>
+          <a href="#" class="btn-primary">Login</a>
+        </div>
+        
+        <!-- Mobile Navigation Button -->
+        <div class="mobile-nav-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </nav>
+      
+      <!-- Mobile Menu (hidden by default) -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#">Webinar</a>
+        <a href="#">Leadership Board</a>
+        <a href="#contact">Contact</a>
+        <a href="#" class="btn-primary" style="margin-top: 12px; text-align: center;">Login</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container-wrapper">
+        <div class="hero-content">
+          <h1>Transform Your Learning Experience</h1>
+          <p>Elevate your skills with our expert-led courses, workshops and resources designed to prepare you for tomorrow's challenges.</p>
+          <div class="hero-buttons">
+            <a href="#courses" class="btn-primary">Explore Courses</a>
+            <a href="#" class="btn-primary" style="background-color: white; color: #1A1F2C;">Get Started</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-scroll">
+        <span>Learn More</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+      <div class="container-wrapper">
+        <div class="about-grid">
+          <div class="about-image">
+            <img src="https://i.giphy.com/media/3oKIPsx2VAYAgEHC12/giphy.webp" alt="Learning Innovation">
+          </div>
+          
+          <div class="about-content">
+            <h2>About Sociocloud</h2>
+            
+            <div class="about-card card">
+              <h3>Our Vision</h3>
+              <p>To create a global community of lifelong learners equipped with the knowledge and skills to tackle complex social and technological challenges. We envision a world where quality education transcends boundaries and empowers individuals to create positive change.</p>
+            </div>
+            
+            <div class="about-card card">
+              <h3>Our Mission</h3>
+              <p>Sociocloud is dedicated to delivering innovative, accessible, and impactful learning experiences that develop leadership, technical skills, and social intelligence. We combine cutting-edge research with practical application to prepare our students for success in an ever-evolving digital landscape.</p>
+            </div>
+            
+            <div style="margin-top: 32px;">
+              <a href="#courses" class="btn-outline">Discover Our Approach</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses section">
+      <div class="container-wrapper">
+        <div class="section-header">
+          <h2>Our Featured Courses</h2>
+          <p>Discover our specially designed curriculum to help you excel in today's digital landscape and build valuable skills for your career.</p>
+        </div>
+        
+        <div class="courses-grid">
+          <!-- Course 1 -->
+          <div class="course-card">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Social Media Strategy">
+            </div>
+            <div class="course-content">
+              <h3>Social Media Strategy</h3>
+              <p>Learn to develop and implement effective social media strategies for business growth and brand awareness.</p>
+              <div class="course-buttons">
+                <a href="#" class="btn-outline">Syllabus</a>
+                <a href="#" class="btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 2 -->
+          <div class="course-card">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Leadership">
+            </div>
+            <div class="course-content">
+              <h3>Digital Leadership</h3>
+              <p>Develop leadership skills for the digital age, focusing on distributed teams and innovation management.</p>
+              <div class="course-buttons">
+                <a href="#" class="btn-outline">Syllabus</a>
+                <a href="#" class="btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 3 -->
+          <div class="course-card">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Data Analytics Fundamentals">
+            </div>
+            <div class="course-content">
+              <h3>Data Analytics Fundamentals</h3>
+              <p>Master the basics of data analysis to make informed decisions and drive organizational success.</p>
+              <div class="course-buttons">
+                <a href="#" class="btn-outline">Syllabus</a>
+                <a href="#" class="btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Course 4 -->
+          <div class="course-card">
+            <div class="course-image">
+              <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Content Creation Mastery">
+            </div>
+            <div class="course-content">
+              <h3>Content Creation Mastery</h3>
+              <p>Create engaging digital content that resonates with your audience and drives engagement.</p>
+              <div class="course-buttons">
+                <a href="#" class="btn-outline">Syllabus</a>
+                <a href="#" class="btn-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="courses-action">
+          <a href="#" class="btn-primary">View All Courses</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Companies Section -->
+    <section class="companies section">
+      <div class="container-wrapper">
+        <div class="section-header">
+          <h2>Where Our Students Work</h2>
+          <p>Our graduates have gone on to work at some of the world's leading companies, leveraging the skills they developed at Sociocloud.</p>
+        </div>
+        
+        <div class="companies-grid">
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/google-icon.svg" alt="Google">
+          </div>
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/microsoft-5.svg" alt="Microsoft">
+          </div>
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/amazon-icon-1.svg" alt="Amazon">
+          </div>
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/facebook-3-2.svg" alt="Facebook">
+          </div>
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/apple-13.svg" alt="Apple">
+          </div>
+          <div class="company-item">
+            <img src="https://cdn.worldvectorlogo.com/logos/ibm.svg" alt="IBM">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Performers Section -->
+    <section class="performers section">
+      <div class="container-wrapper">
+        <div class="section-header">
+          <h2>Our Top Performers</h2>
+          <p>Meet the students who have demonstrated exceptional skills, leadership, and innovation in their learning journey.</p>
+        </div>
+        
+        <div class="performers-grid">
+          <!-- Performer 1 -->
+          <div class="performer-card card">
+            <div class="performer-image">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+            </div>
+            <h3 class="performer-name">Sarah Johnson</h3>
+            <p class="performer-title">Leadership Excellence Award</p>
+            <p class="performer-description">Demonstrated exceptional leadership skills and collaborative approach to problem-solving. Consistently delivers outstanding results.</p>
+          </div>
+          
+          <!-- Performer 2 -->
+          <div class="performer-card card">
+            <div class="performer-image">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+            </div>
+            <h3 class="performer-name">Michael Chen</h3>
+            <p class="performer-title">Innovation Champion</p>
+            <p class="performer-description">Demonstrated exceptional leadership skills and collaborative approach to problem-solving. Consistently delivers outstanding results.</p>
+          </div>
+          
+          <!-- Performer 3 -->
+          <div class="performer-card card">
+            <div class="performer-image">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Elena Rodriguez">
+            </div>
+            <h3 class="performer-name">Elena Rodriguez</h3>
+            <p class="performer-title">Community Impact Award</p>
+            <p class="performer-description">Demonstrated exceptional leadership skills and collaborative approach to problem-solving. Consistently delivers outstanding results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <div class="container-wrapper">
+        <div class="section-header">
+          <h2>Get in Touch</h2>
+          <p>Have questions about our programs or need more information? Reach out to our team.</p>
+        </div>
+        
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" placeholder="Your name" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" placeholder="Your email address" class="form-input">
+            </div>
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" rows="4" placeholder="Your message" class="form-input"></textarea>
+            </div>
+            <button type="submit" class="btn-primary form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container-wrapper">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <span class="logo-square">SC</span>
+            <span class="logo-text">Sociocloud</span>
+          </div>
+          <p class="footer-description">Transforming education through innovative learning approaches and leadership development.</p>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#about">About Us</a></li>
+            <li class="footer-link"><a href="#courses">Courses</a></li>
+            <li class="footer-link"><a href="#performers">Leadership Scorecard</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#">Blog</a></li>
+            <li class="footer-link"><a href="#">Webinars</a></li>
+            <li class="footer-link"><a href="#">Free Resources</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="footer-heading">Connect</h4>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#contact">Contact Us</a></li>
+            <li class="footer-link"><a href="#">Support</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="#" class="social-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd" />
+              </svg>
+            </a>
+            <a href="#" class="social-icon">
+              <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 Sociocloud. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          <a href="#" class="footer-bottom-link">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuButton = document.querySelector('.mobile-nav-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuButton.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+        });
+      });
+      
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
 </html>
